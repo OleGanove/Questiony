@@ -1,0 +1,12 @@
+== Questiny
+
+An app where users can post questions and other users answer those questions. If a user likes and accepts an answer the user with the answer becomes visible/available. Therefore both users can mail with each other. 
+
+Use cases
+
+* User is able to create a profile page
+* Profile page contains a profile picture/avatar, and three of the most popular questions which should/can be answered by the user
+* Users can post questions
+* Users can answer questions
+* Users can accept answers -> Profiles and messaging system becomes available: Users can mail each other (but only with people who they accepted)
+*
