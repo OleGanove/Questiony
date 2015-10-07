@@ -17,6 +17,9 @@ class QuestionsController < ApplicationController
  	end
   end
 
+  def show
+  end
+
   def update
   	if @question.update(question_params)
   	  redirect_to @question, notice: "Yay, the question has been updated!"
@@ -27,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def destroy
   	@question.destroy
-  	redirect_to questions_path
+  	redirect_to user_path(current_user)
   end
 
   private

@@ -1,0 +1,7 @@
+<div class="wrapper_skinny">
+  <h1><%= @question.question %></h1>
+  <p>Posted by <%= @question.user.name %></p>
+  <% if user_signed_in? && current_user == @question.user %>
+    <%= link_to "Delete", question_path(@question), method: :delete, data: { confirm: "Are you sure?" }, class: "devise_links" %>
+  <% end %>
+</div>

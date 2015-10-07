@@ -1,6 +1,6 @@
 <header id="main_header" class="cf">
 	<div class="wrapper_wide">
-		<%= link_to "Questiony.com", root_path, id: "logo" %>
+		<%= link_to "sagmal.de", root_path, id: "logo" %>
 		<nav>	
 			<ul>
 				<% unless user_signed_in? %>
@@ -8,6 +8,7 @@
 				<li><%= link_to "About", "#" %></li>
 				<li><%= link_to "Sign In", new_user_session_path %></li>
 				<% else %>
+				<li><%= link_to "Write question", new_question_path %></li>
 				<li><%= link_to "Edit", edit_user_registration_path %></li>
 				<li><%= link_to "Explore", "#" %></li>
           		<li><%= link_to "Dashboard", user_path(current_user) %></li>
