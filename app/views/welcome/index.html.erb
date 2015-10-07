@@ -1,0 +1,20 @@
+  <div id="background">
+    <header class="cf">
+      <div class="wrapper_wide">
+        <a href="#" id="logo">Questiony.com</a>
+        <nav>
+          <ul>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">About</a></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrapper_skinny">
+      <h1>Answer questions <br>and find new friends</h1>
+      <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
+      <%= link_to "Explore", "#", class: "button button_white" %>
+    </div>
+  </div>
