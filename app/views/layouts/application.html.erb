@@ -8,8 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
   <%= render 'layouts/flash' %>
+
+  <% unless current_page?(root_path) %>
+    <%= render 'layouts/header'; %>
+  <% end %>
+
   <%= yield %>
 
 </body>

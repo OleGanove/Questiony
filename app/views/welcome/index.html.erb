@@ -1,26 +1,26 @@
-  <div id="background">
-    <header class="cf">
-      <div class="wrapper_wide">
-        <a href="#" id="logo">Questiony.com</a>
-        <nav>
-          <ul>
-            <% if user_signed_in? %>
-              <li><a href="#">Explore</a></li>
-              <li><a href="#">Dashboard</a></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><a href="#">Explore</a></li>
-              <li><a href="#">About</a></li>
-              <li><%= link_to "Sign In", new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="wrapper_skinny">
-      <h1>Answer questions <br>and find new friends</h1>
-      <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
-      <%= link_to "Explore", "#", class: "button button_white" %>
+<div id="background">
+  <header class="cf">
+    <div class="wrapper_wide">
+      <%= link_to "Questiony.com", root_path, id: "logo" %>
+      <nav>
+        <ul>
+          <% unless user_signed_in? %>
+          <li><%= link_to "Explore", "#" %></li>
+          <li><%= link_to "About", "#" %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% else %>
+          <li><%= link_to "Explore", "#" %></li>
+          <li><%= link_to "Dashboard", root_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <div class="wrapper_skinny">
+    <h1>Answer questions <br>and find new friends</h1>
+    <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
+    <%= link_to "Explore", "#", class: "button button_white" %>
   </div>
+</div>
