@@ -1,6 +1,8 @@
 <div class="wrapper_skinny">
-  <h1>All questions</h1>
-  <% @questions.each do |question| %>
- 	<p><%= link_to question.question, question %></p>
-  <% end %>
+  <div class="col">
+	<h1>All questions</h1>
+	<% @questions.each do |question| %>
+   	  <p><%= link_to question.question, question %></p>
+	<% end %>
+  </div>
 </div>

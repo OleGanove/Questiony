@@ -1,0 +1,40 @@
+.col {
+	text-align: center;
+}
+
+.col_left {
+	float: left;
+	width: 33%;
+	.pic {
+		width: 3em;
+		clear: both;
+	}
+	.profile_info {
+		overflow: hidden;
+	}
+}
+
+.col_middle {
+	display: inline-block;
+	width: 33%;
+}
+
+.col_right {
+	float: right;
+	width: 33%;
+}
+
+.question_answer {
+	margin: 2em 0;
+	text-align: center;
+
+	.edit_delete {
+		font-size: .7em;
+		color: $dark;
+		padding-right: 1em;
+	}
+}
+
+.profile_title {
+  
+}

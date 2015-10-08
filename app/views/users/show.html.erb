@@ -1,27 +1,46 @@
-<div class="wrapper wide">
+<div class="wrapper_wide">
   <div class="col col_left">
-    <div class="profile">
-      <h1>Profile</h1>
-      <p>Name: <%= @user.name %></p>
-      <p>Gender: <%= get_gender(@user.gender) %></p>
-      <p>Age: <%= @user.age %></p>
+    <div class="profile cf">
+      <h1 class="profile_title">Profile</h1>
+      <%= image_tag("avatars/avatar-05.png", class: "pic cf") %>
+      <div class="profile_info">
+        <p>Name: <%= @user.name %></p>
+        <p>Gender: <%= get_gender(@user.gender) %></p>
+        <p>Age: <%= @user.age %></p>
+      </div>
     </div>
   </div>
 
   <div class="col col_middle">
-  	<h1>Questions</h1>
+  	<h1 class="profile_title">Questions</h1>
 
   	<% @user.questions.each do |question| %>
-  	  <p><%= link_to question.question, question %> |
-
-  	  	<% if user_signed_in? && current_user == question.user %>
-  	    	<%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "devise_links" %>
-  	   	<% end %>
-  	   </p>
+  	  <div class="question_answer">
+  	    <div><%= link_to question.question, question %></div>
+  	    <div>
+  		  <% if user_signed_in? && current_user == question.user %>
+  		    <%= link_to "Edit", edit_question_path(question), class: "edit_delete" %>  
+  		    <%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+  		  <% end %>
+  		</div>
+      </div>
   	<% end %>
   </div>
 
   <div class="col col_right">
+    <h1 class="profile_title">Answers</h1>
+    <div class="question_answer">
+      <div><a href="#">This is the answer to a question</a></div>
+      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
+    </div>
+    <div class="question_answer">
+      <div><a href="#">Another answer, lol</a></div>
+      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
+    </div>
+    <div class="question_answer">
+      <div><a href="#">The third answer</a></div>
+      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
+    </div>
   </div>
 </div>
 
