@@ -29,19 +29,17 @@
 
   <div class="col col_right">
     <h1 class="profile_title">Answers</h1>
-    <div class="question_answer">
-      <div><a href="#">This is the answer to a question</a></div>
-      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
-    </div>
-    <div class="question_answer">
-      <div><a href="#">Another answer, lol</a></div>
-      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
-    </div>
-    <div class="question_answer">
-      <div><a href="#">The third answer</a></div>
-      <div><a href="#" class="edit_delete">Edit</a><a href="#" class="edit_delete">Delete</a></div>
-    </div>
+    <% @user.answers.order("created_at DESC").each do |answer| %>
+      <div class="question_answer">
+        <div><%= link_to answer.content %></div>
+        <% if user_signed_in? && current_user == answer.user %>
+          <%= link_to "Edit", edit_question_path(answer.question), class: "edit_delete" %>  
+          <%= link_to "Delete", "#", method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+
 </div>
 
 

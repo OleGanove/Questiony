@@ -2,11 +2,37 @@
 	<div class="col">
 	  <div class="question_answer">
 		<h1><%= @question.question %></h1>
-		<p>Posted by <%= @question.user.name %></p>
+
 		<% if user_signed_in? && current_user == @question.user %>
-  	   	  <%= link_to "Edit", edit_question_path(@question), class: "edit_delete" %>  
-  		  <%= link_to "Delete", question_path(@question), method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+  	  <%= link_to "Edit", edit_question_path(@question), class: "edit_delete" %>  
+  	  <%= link_to "Delete", question_path(@question), 
+                   method: :delete, 
+                   data: { confirm: "Are you sure?" }, 
+                   class: "edit_delete" %>
 		<% end %>
+
 	  </div>
 	</div>
+</div>
+
+<div class="wrapper_skinny">
+  <h2><%= @question.answers.count %> Answers</h2>
+  <div>
+    <% @question.answers.each do |answer| %>
+      <p><%= answer.content %></p>
+
+
+      <!--
+      <% if user_signed_in? && current_user == answer.user %>
+        <p><%= link_to "Delete", [answer.question, answer],
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+        </p>
+      <% end %>
+      -->
+    <% end %>
+  </div>
+
+  <h3>Add an answer</h3>
+  <%= render "answers/form" %>
 </div>
