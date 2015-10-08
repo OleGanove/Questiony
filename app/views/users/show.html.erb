@@ -1,13 +1,29 @@
-<div class="wrapper_skinny">
-  <h1>Hello, my name is <%= @user.name %></h1>
-  <h1>And I am a <%= get_gender(@user.gender) %></h1>
-  <h1>And I am <%= @user.age %> years old </h1>
-  <h2>My questions</h2>
-  <% @user.questions.each do |question| %>
- 	<h1><%= link_to question.question, question %></h1>
+<div class="wrapper wide">
+  <div class="col col_left">
+    <div class="profile">
+      <h1>Profile</h1>
+      <p>Name: <%= @user.name %></p>
+      <p>Gender: <%= get_gender(@user.gender) %></p>
+      <p>Age: <%= @user.age %></p>
+    </div>
+  </div>
 
-	<% if user_signed_in? && current_user == question.user %>
-	<%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "devise_links" %>
-	<% end %>
-  <% end %>
+  <div class="col col_middle">
+  	<h1>Questions</h1>
+
+  	<% @user.questions.each do |question| %>
+  	  <p><%= link_to question.question, question %> |
+
+  	  	<% if user_signed_in? && current_user == question.user %>
+  	    	<%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "devise_links" %>
+  	   	<% end %>
+  	   </p>
+  	<% end %>
+  </div>
+
+  <div class="col col_right">
+  </div>
 </div>
+
+
+
