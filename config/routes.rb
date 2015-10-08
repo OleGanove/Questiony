@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :questions
   root "welcome#index"
+
+  get "*path" => redirect("/")
 end

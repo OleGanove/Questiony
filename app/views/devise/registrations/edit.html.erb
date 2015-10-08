@@ -11,6 +11,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :gender %><br />
+      <%= f.select :gender, [['female', 1], ['male', 2], ['other', 3], ['not specified', 4]] %>
+    </div>
+
+    <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
