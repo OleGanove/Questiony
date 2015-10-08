@@ -1,6 +1,8 @@
 <div class="wrapper_skinny">
-  <h1>Hallo, hier ist <%= @user.name %></h1>
-  <h2>Dies sind meine questions</h2>
+  <h1>Hello, my name is <%= @user.name %></h1>
+  <h1>And I am a <%= get_gender(@user.gender) %></h1>
+  <h1>And I am <%= @user.age %> years old </h1>
+  <h2>My questions</h2>
   <% @user.questions.each do |question| %>
  	<h1><%= link_to question.question, question %></h1>
 

@@ -9,6 +9,15 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+a {
+	text-decoration: none;
+	color: $highlight;
+	transition: color .1s ease-in-out;
+	&:hover {
+		color: darken($highlight, 20%);
+	}
+}
+
 .wrapper_wide {
 	width: 90%;
 	margin: 0 auto;
@@ -22,15 +31,6 @@ body {
 .wrapper_skinny {
 	width: 50%;
 	margin: 0 auto;
-
-	.devise_links {
-		text-decoration: none;
-		color: $highlight;
-		margin: 10em 0em;
-		&:hover {
-			color: darken($highlight, 20%);
-		}
-	}
 }
 
 .cf:before, .cf:after {

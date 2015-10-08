@@ -12,7 +12,12 @@
 
     <div class="field">
       <%= f.label :gender %><br />
-      <%= f.select :gender, [['female', 1], ['male', 2], ['other', 3], ['not specified', 4]] %>
+      <%= f.select :gender, [['female', 1], ['male', 2], ['other', 3], ['not specified', 4]],  {:include_blank => 'Choose gender'} %>
+    </div>
+
+    <div class="field">
+      <%= f.label :age %><br />
+      <%= f.select :age, (13..100) %>
     </div>
 
     <div class="field">

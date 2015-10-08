@@ -1,6 +1,6 @@
 <%= form_for @question do |f| %>
   <% if @question.errors.any? %>
-  	<h2>There were<%= pluralize(@question.errors.count, "error")%></h2>
+  	<h2><%= pluralize(@question.errors.count, "error") %> prevented from saving</h2>
   	<ul>
   	  <% @question.errors.full_messages.each do |msg| %>
   	  	<li><%= msg %></li>
@@ -13,5 +13,5 @@
 
   <br>
 
-  <%= f.submit %>
+  <%= f.submit :class => "button button_highlight" %>
 <% end %>
