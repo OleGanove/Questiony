@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
   	if @answer.save
       redirect_to question_path(@question), notice: "Answer successfully saved!"
   	else
-      redirect_to question_path(@question), notice: "Could not create answer: #{@answer.errors}"
+      redirect_to question_path(@question), notice: "Could not create answer: #{@answer.errors.messages}"
   	end
   end
 
