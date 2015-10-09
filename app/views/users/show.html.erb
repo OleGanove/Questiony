@@ -31,10 +31,10 @@
     <h1 class="profile_title">Answers</h1>
     <% @user.answers.order("created_at DESC").each do |answer| %>
       <div class="question_answer">
-        <div><%= link_to answer.content %></div>
+        <div><%= link_to answer.content, [answer.question] %></div>
         <% if user_signed_in? && current_user == answer.user %>
-          <%= link_to "Edit", edit_question_path(answer.question), class: "edit_delete" %>  
-          <%= link_to "Delete", "#", method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+          <%= link_to "Edit", edit_question_answer_path(answer.question, answer), class: "edit_delete" %>  
+          <%= link_to "Delete", [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
         <% end %>
       </div>
     <% end %>

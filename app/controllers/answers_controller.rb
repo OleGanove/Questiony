@@ -1,23 +1,46 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_question, only: [:create, :update, :edit, :destroy]
+
   def create
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(params[:answer].permit(:content))
+    #@answer = @question.answers.create(answer_params)
+    @answer = @question.answers.build(answer_params)
     @answer.user_id = current_user.id
 
   	if @answer.save
-  	  flash[:notice] = "Answer successfully saved!"
-      redirect_to question_path(@question)
+      redirect_to question_path(@question), notice: "Answer successfully saved!"
   	else
-  	  flash[:notice] = "Could not create answer: #{@answer.errors}"
-      redirect_to question_path(@question)
+      redirect_to question_path(@question), notice: "Could not create answer: #{@answer.errors}"
   	end
   end
 
+  def edit
+    @answer = @question.answers.find(params[:id])
+  end
+
+  def update
+    @answer = @question.answers.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to question_path(@question), notice: "Yay, Answer updated!"
+    else
+      render edit_question_answer_path(@answer.question, @answer) 
+    end
+  end
+
   def destroy
-    @question = Question.find(params[:question_id])
   	@answer = @question.answers.find(params[:id])
   	@answer.destroy
 
   	redirect_to question_path(@question)
   end
+
+  private
+
+    def find_question
+      @question = Question.find(params[:question_id])
+    end
+
+    def answer_params
+      params.require(:answer).permit(:content)
+    end
 end

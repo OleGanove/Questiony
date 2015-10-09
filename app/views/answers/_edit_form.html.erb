@@ -1,0 +1,10 @@
+<%= form_for([@question, @answer]) do |f| %>
+  <p>
+  	<%= f.label :content %>
+  	<%= f.text_area :content %>
+  </p>
+
+  <p>
+    <%= f.submit class: "button button_highlight" %>
+  </p>
+<% end %>

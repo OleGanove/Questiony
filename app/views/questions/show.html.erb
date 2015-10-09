@@ -16,20 +16,20 @@
 </div>
 
 <div class="wrapper_skinny">
-  <h2><%= @question.answers.count %> Answers</h2>
-  <div>
+  <div class="question_answer">
+    <h2><%= @question.answers.count %> Answers</h2>
     <% @question.answers.each do |answer| %>
       <p><%= answer.content %></p>
-
-
-      <!--
+      
       <% if user_signed_in? && current_user == answer.user %>
-        <p><%= link_to "Delete", [answer.question, answer],
+        <%= link_to "Edit", edit_question_answer_path(@question, answer), class: "edit_delete" %>
+        <%= link_to "Delete", [answer.question, answer],
                         method: :delete,
-                        data: { confirm: "Are you sure?" } %>
-        </p>
+                        data: { confirm: "Are you sure?" },
+                        class: "edit_delete" %>
+        
       <% end %>
-      -->
+      
     <% end %>
   </div>
 
