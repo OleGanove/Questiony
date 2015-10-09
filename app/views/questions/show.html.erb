@@ -19,6 +19,7 @@
   <h3>Add an answer</h3>
   <%= render "answers/form" %>
 
+  <% if question_owner? %>
   <div class="answer question_answer">
     <h2><%= @question.answers.count %> Answers</h2>
     <% @question.answers.order("created_at DESC").each do |answer| %>
@@ -34,4 +35,5 @@
       <% end %>
     <% end %>
   </div>
+  <% end %>
 </div>
