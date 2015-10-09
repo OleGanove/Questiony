@@ -14,7 +14,7 @@
   <div class="col col_middle">
   	<h1 class="profile_title">Questions</h1>
 
-  	<% @user.questions.order("created_at DESC").each do |question| %>
+  	<% @user.questions.limit(3).order("created_at DESC").each do |question| %>
   	  <div class="question_answer">
   	    <div><%= link_to question.question, question %></div>
   	    <div>
@@ -29,7 +29,7 @@
 
   <div class="col col_right">
     <h1 class="profile_title">Answers</h1>
-    <% @user.answers.order("created_at DESC").each do |answer| %>
+    <% @user.answers.limit(3).order("created_at DESC").each do |answer| %>
       <div class="question_answer">
         <div><%= link_to answer.content, [answer.question] %></div>
         <% if user_signed_in? && current_user == answer.user %>

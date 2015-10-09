@@ -18,6 +18,10 @@ a {
 	}
 }
 
+hr {
+	color: $light;
+}
+
 .wrapper_wide {
 	width: 90%;
 	margin: 0 auto;
@@ -216,6 +220,7 @@ input[type="email"], input[type="text"], input[type="password"], textarea {
 textarea {
 	min-height: 8rem;
 	margin-top: .5rem !important;
+	box-sizing: border-box;
 }
 
 #form {
