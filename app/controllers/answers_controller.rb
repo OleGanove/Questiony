@@ -3,7 +3,6 @@ class AnswersController < ApplicationController
   before_action :find_question, only: [:create, :update, :edit, :destroy]
 
   def create
-    #@answer = @question.answers.create(answer_params)
     @answer = @question.answers.build(answer_params)
     @answer.user_id = current_user.id
 
