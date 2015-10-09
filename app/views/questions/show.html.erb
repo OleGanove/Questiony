@@ -16,9 +16,27 @@
 </div>
 
 <div class="wrapper_skinny">
-  <h3>Add an answer</h3>
-  <%= render "answers/form" %>
+  <!-- Only show answer form, if user has not answered yet -->  
+  <% if answered_by_current_user? %>
+    <div class="answer question_answer">
+      <h3>You have already answered the question:</h3>
+      <p><%= own_answer_content %></p>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_question_answer_path(@question, own_answer), class: "edit_delete" %>
+        <%= link_to "Delete", [own_answer.question, own_answer],
+                     method: :delete,
+                     data: { confirm: "Are you sure?" },
+                     class: "edit_delete" %>
+      <% end %>
+    </div>
+  <% else %>
+    <h3>Add an answer</h3>
+    <%= render "answers/form" %>
+  <% end %>
 
+
+
+  <!-- Show me every answer, if current user has created the question -->
   <% if question_owner? %>
   <div class="answer question_answer">
     <h2><%= @question.answers.count %> Answers</h2>

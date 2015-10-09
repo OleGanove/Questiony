@@ -13,13 +13,6 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :gender, :age, :email, :password, :password_confirmation, :current_password) }
   end
 
-  def authorize
-  	unless question_owner?
-  	  flash[:notice] = "Unauthorized access"
-  	  redirect_to root_path
-  	  false
-  	end
-  end
 
   def question_owner?
   	@question = Question.find(params[:id])

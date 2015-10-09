@@ -9,7 +9,11 @@ class AnswersController < ApplicationController
   	if @answer.save
       redirect_to question_path(@question), notice: "Answer successfully saved!"
   	else
-      redirect_to question_path(@question), alert: "Could not create answer: #{@answer.errors.full_messages}"
+      @messages = []
+      @answer.errors.full_messages.each do |msg|
+        @messages << msg
+      end
+      redirect_to question_path(@question), alert: "Could not create answer: #{@messages}"
   	end
   end
 
