@@ -1,36 +1,56 @@
+
 <div id="background">
   <header class="cf">
     <div class="wrapper_wide">
-      <%= link_to "sagmal", root_path, id: "logo" %>
+      <%= link_to "sagmal..", root_path, id: "logo" %>
       <nav>
-        <%= form_for(:user, :url => session_path(:user)) do |f| %>
-          <%= f.text_field :email %>
-          <%= f.password_field :password %>
-          <%= f.submit 'Sign in' %>
-        <% end %>
-        <ul>
           <% unless user_signed_in? %>
-            <li><%= link_to "Explore", questions_path %></li>
-            <li><%= link_to "About", "#" %></li>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                <%= f.text_field :email, class: "login email", placeholder: "Email" %>
+                <%= f.password_field :password, class: "login password", placeholder: "Passwort" %>
+
+              <%= f.submit 'Anmelden', class: "sign_in button button_highlight" %>
+            <% end %>  
           <% else %>
+          <ul>
             <li><%= link_to "Edit", edit_user_registration_path %></li>
-             <li><%= link_to "Explore", questions_path  %></li>
+            <li><%= link_to "Explore", questions_path  %></li>
             <li><%= link_to "Dashboard", user_path(current_user) %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          </ul>
           <% end %>
-        </ul>
+
       </nav>
     </div>
   </header>
 
-  <div class="wrapper_skinny">
-    <div class="welcome_title">
-      <h1 class="first">Beantworte</h1>
-      <h1 class="second">kreativ</h1>
-      <h1 class="third">Fragen</h1>
+  <div class="wrapper_skinny middle">
+    <div class="wrap">
+      <h1 class="title">
+        <span class="old old-1">Beantworte</span>
+        <span class="new">
+          Beantworte - so kreativ wie möglich - lustige, absurde und (ab und zu auch) ernste Fragen von tollen Menschen.
+        </span>
+      </h1>
     </div>
-    <%= link_to "Anmelden", new_user_registration_path, class: "button button_highlight" %>
-    <div class="welcome_subtitle">und lerne tolle<br> Leute kennen</div>
+    <div class="wrap">
+      <h1 class="title">
+        <span class="old old-2">kreativ</span>
+        <span class="new">
+          Kreativ genug? Wenn die andere Person deine Antwort mag, könnt ihr eure Profile sehen und miteinander schreiben, yay!
+        </span>
+      </h1>
+    </div>
+    <div class="wrap">
+      <h1 class="title">
+        <span class="old old-3">Fragen</span>
+        <span class="new">
+          Oder stell' du doch einfach selbst Fragen & entdecke, wer sich hinter den besten Antworten verbirgt.
+        </span>
+      </h1>
+    </div>
+
+    <%= link_to "Registrieren", new_user_registration_path, class: "register button button_highlight" %>
+    <div class="welcome_subtitle">...und lerne tolle<br> Menschen kennen.</div>
   </div>
 </div>

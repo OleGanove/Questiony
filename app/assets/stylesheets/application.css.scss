@@ -1,5 +1,5 @@
 $white: #FFFFFF;
-$highlight: #d2674e;
+$highlight: #F6615D;
 $dark: #22292e;
 $light: #EDEFF5;
 $green: #6AFF92;
@@ -92,24 +92,26 @@ hr {
 	vertical-align: middle;
 	padding: 0.6em 0 0 0;
 	clear: both;
-
+	margin: 1.5rem 2.5% 0 2.5%;
 
 }
 
 .button_highlight {
 	background: $highlight;
-	transition: background .4s ease-in-out;
+	margin: 1.5rem 2.5% 0 2.5%;
+	transition: background .2s ease-in-out;
 	&:hover {
 		background: darken($highlight, 7.5%);
+		color: $white;
 	}
 }
 
 .button_white {
 	background: $white;
 	color: $dark;
-	transition: background .4s ease-in-out;
+	transition: background .2s ease-in-out;
 	&:hover {
-		background: darken($white, 7.5%);
+		background: darken($white, 10%);
 	}
 }
 
