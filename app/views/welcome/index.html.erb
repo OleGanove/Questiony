@@ -1,18 +1,18 @@
 <div id="background">
   <header class="cf">
     <div class="wrapper_wide">
-      <%= link_to "sagmal.de", root_path, id: "logo" %>
+      <%= link_to "sagmal", root_path, id: "logo" %>
       <nav>
         <ul>
           <% unless user_signed_in? %>
-          <li><%= link_to "Explore", questions_path %></li>
-          <li><%= link_to "About", "#" %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Explore", questions_path %></li>
+            <li><%= link_to "About", "#" %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
           <% else %>
-          <li><%= link_to "Edit", edit_user_registration_path %></li>
-          <li><%= link_to "Explore", questions_path  %></li>
-          <li><%= link_to "Dashboard", user_path(current_user) %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Edit", edit_user_registration_path %></li>
+             <li><%= link_to "Explore", questions_path  %></li>
+            <li><%= link_to "Dashboard", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </nav>
@@ -20,8 +20,12 @@
   </header>
 
   <div class="wrapper_skinny">
-    <h1>Answer questions <br>and find new friends</h1>
-    <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
-    <%= link_to "Explore", questions_path, class: "button button_white" %>
+    <div class="welcome_title cf">
+      <h1 class="first">Beantworte</h1>
+      <h1 class="second">kreativ</h1>
+      <h1 class="third">Fragen</h1>
+    </div>
+    <%= link_to "Anmelden", new_user_registration_path, class: "button button_highlight" %>
+    <div class="welcome_subtitle">und lerne tolle<br> Leute kennen</div>
   </div>
 </div>

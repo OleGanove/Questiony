@@ -1,5 +1,5 @@
 #background {
-	background: image-url('background_welcome.jpg');
+	background: image-url('sagmal_background.jpg');
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
@@ -7,6 +7,8 @@
 
 	header {
 		padding: 3rem 0;
+		font-size: 1.2em;
+
 		#logo {
 			float: left;
 			text-transform: uppercase;
@@ -35,11 +37,50 @@
 
 	h1 {
 		color: $white;
-		font-size: 3.5rem;
+		font-size: 3.3vw;
 		font-weight: 300;
+		text-transform: uppercase;
 		letter-spacing: 1px;
-		margin: 7rem 0 2rem 0;
 	}
+
+	.welcome_title {
+		margin: 0 auto;
+		margin-top: 7em;
+		text-align: left;
+		display: inline-block;
+		padding-left: 3em;
+		overflow: auto;
+		zoom: 1;
+
+		.first {
+			letter-spacing: .25em;
+		}
+
+		.second {
+			letter-spacing: 0.84em;
+		}
+
+		.third {
+			letter-spacing: 1.05em;
+		}
+
+		.first, .second, .third {
+			float: left;
+		}		
+	}
+
+
+
+	.welcome_subtitle {
+		color: white;
+		letter-spacing: 0.4em;
+		font-size: 1.2vw;
+		margin: 3em 0;
+		text-transform: lowercase;
+		line-height: 1.5em;
+
+	}
+
 
 	.button {
 		margin: 1.5rem 2.5% 0 2.5%;

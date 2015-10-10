@@ -6,7 +6,7 @@ $green: #6AFF92;
 $red: #FF341C;
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
 
 a {
@@ -39,11 +39,17 @@ hr {
 
 .cf:before, .cf:after {
 	content: " ";
-	display: table;
+	display: block;
+	height: 0;
+	overflow: hidden;
 }
 
 .cf:after {
 	clear: both;
+}
+
+.cf {
+	zoom: 1;
 }
 
 #notice_wrapper {
@@ -74,13 +80,20 @@ hr {
 .button {
 	color: $white;
 	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
 	font-size: 1rem;
-	padding: 1rem 2rem;
-	border-radius: 2rem;
+	letter-spacing: 0.2em;
 	outline: none;
 	border: none;
 	display: inline-block;
-	min-width: 8.5rem;
+	min-width: 9rem;
+	height: 2em;
+	vertical-align: middle;
+	padding: 0.6em 0 0 0;
+	clear: both;
+
+
 }
 
 .button_highlight {
