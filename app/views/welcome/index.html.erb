@@ -3,6 +3,11 @@
     <div class="wrapper_wide">
       <%= link_to "sagmal", root_path, id: "logo" %>
       <nav>
+        <%= form_for(:user, :url => session_path(:user)) do |f| %>
+          <%= f.text_field :email %>
+          <%= f.password_field :password %>
+          <%= f.submit 'Sign in' %>
+        <% end %>
         <ul>
           <% unless user_signed_in? %>
             <li><%= link_to "Explore", questions_path %></li>
@@ -20,7 +25,7 @@
   </header>
 
   <div class="wrapper_skinny">
-    <div class="welcome_title cf">
+    <div class="welcome_title">
       <h1 class="first">Beantworte</h1>
       <h1 class="second">kreativ</h1>
       <h1 class="third">Fragen</h1>
