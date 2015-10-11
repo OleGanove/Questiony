@@ -80,13 +80,11 @@
 	}
 
 	.middle {
-		padding-top: 10em;
+		margin-top: 10em;
 	}
 
 	.wrapper_skinny {
 		.wrap {
-			/*transition: all 0.2s ease-in-out;*/
-
 			h1 {
 				overflow:hidden;
 
@@ -149,6 +147,7 @@
 		}
 		.register {
 			width: 12em;
+			margin-top: 4em;
 		}
 	}
 
