@@ -4,6 +4,9 @@ $dark: #22292e;
 $light: #EDEFF5;
 $green: #6AFF92;
 $red: #FF341C;
+$blueish: #30A689;
+$light_blue: #6CBD94;
+$dark_blue: #1B7263;
 
 body {
 	font-family: 'Quicksand', sans-serif;
@@ -20,6 +23,10 @@ a {
 
 hr {
 	color: $light;
+}
+
+.wrapper_full {
+	width: 100%;
 }
 
 .wrapper_wide {
@@ -244,3 +251,4 @@ textarea {
 @import 'normalize';
 @import 'welcome';
 @import 'profile';
+@import 'question';

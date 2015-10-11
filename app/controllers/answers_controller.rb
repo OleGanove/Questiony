@@ -7,13 +7,13 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
 
   	if @answer.save
-      redirect_to question_path(@question), notice: "Answer successfully saved!"
+      redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!"
   	else
       @messages = []
       @answer.errors.full_messages.each do |msg|
         @messages << msg
       end
-      redirect_to question_path(@question), alert: "Could not create answer: #{@messages}"
+      redirect_to question_path(@question), alert: "Die Antwort konnte leider nicht gespeichert werden: #{@messages}"
   	end
   end
 
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   def update
     @answer = @question.answers.find(params[:id])
     if @answer.update(answer_params)
-      redirect_to question_path(@question), notice: "Yay, Answer updated!"
+      redirect_to question_path(@question), notice: "Yay, Antwort wurde gespeichert!"
     else
       render edit_question_answer_path(@answer.question, @answer) 
     end

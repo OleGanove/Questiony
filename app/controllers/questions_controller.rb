@@ -16,9 +16,9 @@ class QuestionsController < ApplicationController
   	@question = current_user.questions.build(question_params)
 
   	if @question.save
-  	  redirect_to @question, notice: "Yay, #{current_user.name}, question saved!"
+  	  redirect_to @question, notice: "Yay, #{current_user.name}, die Frage wurde gespeichert!"
   	else
-  	  render 'new', notice: "Oh no, #{current_user.name}, Question couldn't be saved!"
+  	  render 'new', notice: "Oh nein, #{current_user.name}, die Frage konnte nicht gespeichert werden."
  	end
   end
 
@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 
   def update
   	if @question.update(question_params)
-  	  redirect_to @question, notice: "Yay, the question has been updated!"
+  	  redirect_to @question, notice: "Yay, die Frage wurde auf den neuesten Stand gebracht!"
   	else 
   	  render 'edit'
   	end

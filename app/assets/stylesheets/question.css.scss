@@ -1,0 +1,72 @@
+.question, .own_question, .before_question, .next_question {
+
+	h1 {
+		letter-spacing: 0.1em;
+		font-weight: normal;
+		color: #FFF;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1.6em;
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		margin: 4em auto;
+	}
+}
+
+.question_index {
+	h1 a{
+		color: white;
+	}
+}
+
+.question {
+	background-color: $blueish;
+}
+
+.own_question {
+	background-color: $dark_blue;
+}
+
+.before_question {
+	background-color: $blueish;	
+	&:hover {
+		background-color: darken($blueish, 10%);
+	}
+}
+
+.next_question {
+	background-color: $highlight;
+	&:hover {
+		background-color: darken($highlight, 3%);
+	}
+}
+
+.control_panel {
+	background-color: $light_blue;
+	text-align: center;
+	margin-bottom: 3em;
+
+	.edit_delete {
+		padding: 1em 1em;
+		color: $white;
+		line-height: 1.8em;
+	}
+}
+
+.question_answer {
+
+	.edit_delete {
+		font-size: .7em;
+		color: $dark;
+		padding-right: 1em;
+	}
+}
+
+.answer_form {
+	margin-bottom: 2.5em;
+}
+
+.answer {
+	text-align: left;
+}

@@ -1,52 +1,62 @@
-<div class="wrapper_skinny">
-	<div class="col">
-	  <div class="question_answer">
-		<h1><%= @question.question %></h1>
+<div class="wrapper_full">
 
-		<% if user_signed_in? && current_user == @question.user %>
-  	  <%= link_to "Edit", edit_question_path(@question), class: "edit_delete" %>  
-  	  <%= link_to "Delete", question_path(@question), 
-                   method: :delete, 
-                   data: { confirm: "Are you sure?" }, 
-                   class: "edit_delete" %>
-		<% end %>
+  <% if own_question? %>
+	  <div class="own_question question_answer">
+  <% else %>
+    <div class="question question_answer">
+  <%end%>
+	    <div class="wrapper_skinny">
+        <h1><%= @question.question %></h1>
+      </div>
+    </div>
 
-	  </div>
-	</div>
+  <div class="wrapper_full">
+    <div class="control_panel">     
+      <% if user_signed_in? && current_user == @question.user %>
+        <%= link_to "Bearbeiten", edit_question_path(@question), 
+                                  class: "edit_delete" %>  
+        <%= link_to "Löschen", question_path(@question), 
+                               method: :delete, 
+                               data: { confirm: "Bist du sicher?" }, 
+                               class: "edit_delete" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="wrapper_skinny">
   <!-- Only show answer form, if user has not answered yet -->  
-  <% if answered_by_current_user? %>
+  <% if answered_by_current_user?%>
     <div class="answer question_answer">
-      <h3>You have already answered the question:</h3>
+      <h3>Deine Antwort:</h3>
       <p><%= own_answer_content %></p>
       <% if user_signed_in? %>
-        <%= link_to "Edit", edit_question_answer_path(@question, own_answer), class: "edit_delete" %>
-        <%= link_to "Delete", [own_answer.question, own_answer],
+        <%= link_to "Bearbeiten", edit_question_answer_path(@question, own_answer), class: "edit_delete" %>
+        <%= link_to "Löschen", [own_answer.question, own_answer],
                      method: :delete,
-                     data: { confirm: "Are you sure?" },
+                     data: { confirm: "Bist du sicher?" },
                      class: "edit_delete" %>
       <% end %>
     </div>
-  <% else %>
-    <h3>Add an answer</h3>
-    <%= render "answers/form" %>
+  <% elsif !own_question? %>
+    <div class="answer_form">
+      <h3>Beantworte die Frage</h3>
+      <%= render "answers/form" %>
+    </div>
   <% end %>
-
 
 
   <!-- Show me every answer, if current user has created the question -->
   <% if question_owner? %>
   <div class="answer question_answer">
-    <h2><%= @question.answers.count %> Answers</h2>
+    <h2><%= @question.answers.count %> Antwort(en)</h2>
     <% @question.answers.order("created_at DESC").each do |answer| %>
       <hr>
       <p><%= answer.content %></p>
 
       <% if user_signed_in? && current_user == answer.user %>
-        <%= link_to "Edit", edit_question_answer_path(@question, answer), class: "edit_delete" %>
-        <%= link_to "Delete", [answer.question, answer],
+        <%= link_to "Bearbeiten", edit_question_answer_path(@question, answer), class: "edit_delete" %>
+        <%= link_to "Löschen", [answer.question, answer],
                      method: :delete,
                      data: { confirm: "Are you sure?" },
                      class: "edit_delete" %>
