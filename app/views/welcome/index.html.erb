@@ -12,12 +12,13 @@
               <%= f.submit 'Anmelden', class: "sign_in button button_highlight" %>
             <% end %>  
           <% else %>
-          <ul>
-            <li><%= link_to "Edit", edit_user_registration_path %></li>
-            <li><%= link_to "Explore", questions_path  %></li>
-            <li><%= link_to "Dashboard", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-          </ul>
+            <ul>
+              <li><%= link_to "Frage", new_question_path %></li>
+              <li><%= link_to "Beantworte", questions_path %></li>
+              <li><%= link_to "Dashboard", user_path(current_user) %></li>
+              <li><%= link_to "Bearbeiten", edit_user_registration_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            </ul>
           <% end %>
 
       </nav>

@@ -4,15 +4,15 @@
 		<nav>	
 			<ul>
 				<% unless user_signed_in? %>
-				<li><%= link_to "Explore", questions_path %></li>
-				<li><%= link_to "About", "#" %></li>
-				<li><%= link_to "Sign In", new_user_session_path %></li>
+				  <li><%= link_to "Entdecke", questions_path %></li>
+			      <li><%= link_to "Get Started", "#" %></li>
+				  <li><%= link_to "Sign In", new_user_session_path %></li>
 				<% else %>
-				<li><%= link_to "Write question", new_question_path %></li>
-				<li><%= link_to "Edit", edit_user_registration_path %></li>
-				<li><%= link_to "Explore", questions_path %></li>
-          		<li><%= link_to "Dashboard", user_path(current_user) %></li>
-				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+				  <li><%= link_to "Frage", new_question_path %></li>
+				  <li><%= link_to "Beantworte", questions_path %></li>
+          		  <li><%= link_to "Dashboard", user_path(current_user) %></li>
+         		  <li><%= link_to "Bearbeiten", edit_user_registration_path %></li>
+				  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 				<% end %>
 			</ul>
 		</nav>

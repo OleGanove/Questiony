@@ -3,7 +3,7 @@
 <% @questions.each do |question| %>
   <div class="wrapper_full">
 	<% if i%2 == 0 %>
-	  <div class="before_question question_index">	
+	  <div class="prev_question question_index">	
 	<% else %>
 	  <div class="next_question question_index">
 	<% end %>
@@ -14,3 +14,5 @@
   </div>
   <% i = i+1 %>
 <% end %>
+
+

@@ -1,6 +1,6 @@
 <div id="form">
   <div class="wrapper_skinny">
-    <h2>Log in</h2>
+    <h2>Einloggen</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -9,19 +9,19 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
+      <%= f.label :password, "Passwort" %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me %>
+      <%= f.check_box :remember_me, "Angaben merken" %>
       <%= f.label :remember_me %>
     </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "button button_highlight" %>
+      <%= f.submit "Einloggen", class: "button button_highlight" %>
     </div>
     <% end %>
 

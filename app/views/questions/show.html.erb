@@ -8,25 +8,26 @@
 	    <div class="wrapper_skinny">
         <h1><%= @question.question %></h1>
       </div>
+
+      <div class="wrapper_full">
+        <div class="control_panel">     
+          <% if user_signed_in? && current_user == @question.user %>
+            <%= link_to "Bearbeiten", edit_question_path(@question)%>  
+            <%= link_to "Löschen", question_path(@question), 
+                                   method: :delete, 
+                                   data: { confirm: "Bist du sicher?" } %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-  <div class="wrapper_full">
-    <div class="control_panel">     
-      <% if user_signed_in? && current_user == @question.user %>
-        <%= link_to "Bearbeiten", edit_question_path(@question), 
-                                  class: "edit_delete" %>  
-        <%= link_to "Löschen", question_path(@question), 
-                               method: :delete, 
-                               data: { confirm: "Bist du sicher?" }, 
-                               class: "edit_delete" %>
-      <% end %>
-    </div>
+
   </div>
 </div>
 
 <div class="wrapper_skinny">
   <!-- Only show answer form, if user has not answered yet -->  
-  <% if answered_by_current_user?%>
+  <% if answered_by_current_user? %>
     <div class="answer question_answer">
       <h3>Deine Antwort:</h3>
       <p><%= own_answer_content %></p>

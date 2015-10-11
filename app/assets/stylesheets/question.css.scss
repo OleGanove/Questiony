@@ -1,4 +1,4 @@
-.question, .own_question, .before_question, .next_question {
+.question, .own_question, .prev_question, .next_question, .answered_question{
 
 	h1 {
 		letter-spacing: 0.1em;
@@ -20,6 +20,7 @@
 	}
 }
 
+
 .question {
 	background-color: $blueish;
 }
@@ -28,7 +29,7 @@
 	background-color: $dark_blue;
 }
 
-.before_question {
+.prev_question {
 	background-color: $blueish;	
 	&:hover {
 		background-color: darken($blueish, 10%);
@@ -38,8 +39,12 @@
 .next_question {
 	background-color: $highlight;
 	&:hover {
-		background-color: darken($highlight, 3%);
+		background-color: #F63E47;
 	}
+}
+
+.anwered_question {
+	background-color: $middle;
 }
 
 .control_panel {
@@ -47,10 +52,15 @@
 	text-align: center;
 	margin-bottom: 3em;
 
-	.edit_delete {
+	a {
 		padding: 1em 1em;
 		color: $white;
-		line-height: 1.8em;
+		line-height: 2.2em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		&:hover {
+			font-weight: bold;
+		}
 	}
 }
 

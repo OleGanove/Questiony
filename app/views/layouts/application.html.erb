@@ -10,11 +10,14 @@
 <body>
   <%= render 'layouts/flash' %>
 
-  <% unless current_page?(root_path) %>
-    <%= render 'layouts/header'; %>
+  <% if current_page?(root_path) %>
+    <%= yield %>
+  <% else %>
+    <div id="content">
+      <%= render 'layouts/header' %>
+      <%= yield %>
+    </div>
   <% end %>
-
-  <%= yield %>
 
 </body>
 </html>

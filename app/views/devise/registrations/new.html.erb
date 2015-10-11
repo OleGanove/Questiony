@@ -1,6 +1,6 @@
 <div id="form">
   <div class="wrapper_skinny">
-    <h2>Sign up</h2>
+    <h2>Registriere dich</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+      <%= f.label :password, "Passwort" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -23,12 +23,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation, "Passwort bestätigen" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "button button_highlight" %>
+      <%= f.submit "Registrieren", class: "button button_highlight" %>
     </div>
     <% end %>
 

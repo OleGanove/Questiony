@@ -1,6 +1,7 @@
 $white: #FFFFFF;
 $highlight: #F6615D;
 $dark: #22292e;
+$middle: #AFB1C2;
 $light: #EDEFF5;
 $green: #6AFF92;
 $red: #FF341C;
@@ -12,12 +13,42 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
+#content {
+	padding-top: 6.2em;
+}
+
 a {
 	text-decoration: none;
 	color: $highlight;
 	transition: color .1s ease-in-out;
 	&:hover {
 		color: darken($highlight, 20%);
+	}
+}
+
+h2 {
+	color: $dark;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 1.6em;	
+}
+
+.headline {
+	background-color: $blueish;
+	margin-bottom: 1.5em;
+	.wrapper_skinny {
+		h1 {
+			letter-spacing: 0.1em;
+			font-weight: normal;
+			color: #FFF;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1.6em;
+			text-transform: uppercase;
+			text-align: center;
+			width: 100%;
+			margin: 1em auto;
+		}
 	}
 }
 
@@ -126,10 +157,25 @@ hr {
 	margin: 0 auto;
 }
 
+#fixed_navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+
 #main_header {
 	color: $dark;
 	background: $white;
 	padding: 2.5rem 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+
 	#logo {
 		float: left;
 		text-transform: uppercase;
@@ -147,8 +193,15 @@ hr {
 				display: inline;
 				margin-left: 2.5rem;
 				a {
-					color: $dark;
+					color: $middle;
 					text-decoration: none;
+					text-transform: uppercase;
+					letter-spacing: 0.1em;
+					font-weight: bold;
+
+					&:hover{
+						color: $highlight;
+					}
 				}
 			}
 		}
@@ -234,12 +287,11 @@ input[type="email"], input[type="text"], input[type="password"], textarea {
 	padding: .25rem 1rem;
 	background: $light;
 	border: 1px solid darken($light, 5%);
-	border-radius: .35rem;
 	margin-top: .5rem;
 }
 
 textarea {
-	min-height: 8rem;
+	min-height: 12rem;
 	margin-top: .5rem !important;
 	box-sizing: border-box;
 }
