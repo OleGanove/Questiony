@@ -1,6 +1,6 @@
 $white: #FFFFFF;
 $highlight: #F6615D;
-$dark: #22292e;
+$dark: #585858;
 $middle: #AFB1C2;
 $light: #EDEFF5;
 $green: #6AFF92;
@@ -26,11 +26,28 @@ a {
 	}
 }
 
-h2 {
+h2, h3, h4, h5, h6 {
 	color: $dark;
 	font-weight: normal;
-	text-transform: uppercase;
-	font-size: 1.6em;	
+	text-transform: uppercase;	
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.3em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+p {
+	font-family: 'Droid Sans', sans-serif;;
+	color: $dark;
+	letter-spacing: 0.04em;
 }
 
 .headline {
@@ -184,6 +201,7 @@ hr {
 		text-decoration: none;
 		letter-spacing: 0.3em;
 	}
+	
 	nav {
 		float: right;
 		ul {
@@ -301,6 +319,7 @@ textarea {
 }
 
 @import 'normalize';
+@import 'font-awesome';
 @import 'welcome';
 @import 'profile';
 @import 'question';

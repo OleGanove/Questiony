@@ -10,11 +10,15 @@
 				<% else %>
 				  <li><%= link_to "Frage", new_question_path %></li>
 				  <li><%= link_to "Beantworte", questions_path %></li>
-          		  <li><%= link_to "Dashboard", user_path(current_user) %></li>
-         		  <li><%= link_to "Bearbeiten", edit_user_registration_path %></li>
-				  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	              <li><%= link_to "Dashboard", user_path(current_user) %></li>
+				  <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+				  <li><%= link_to '<i class="fa fa-user"></i>'.html_safe, edit_user_registration_path %>
+				  <li><%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, 
+				  				  destroy_user_session_path, 
+				  				  method: :delete %></li>
 				<% end %>
 			</ul>
 		</nav>
 	</div>
 </header>
+

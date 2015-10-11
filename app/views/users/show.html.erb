@@ -23,7 +23,7 @@
 
   	<% @user.questions.limit(3).order("created_at DESC").each do |question| %>
   	  <div class="question_answer">
-  	    <div><%= link_to question.question, question %></div>
+  	    <p><%= link_to question.question, question %></p>
   	      <div>
   		      <% if user_signed_in? && current_user == question.user %>
   		        <%= link_to "Bearbeiten", edit_question_path(question), class: "edit_delete" %>  
@@ -39,9 +39,9 @@
     <h2 class="profile_title">Deine Antworten</h2>
     <% @user.answers.limit(3).order("created_at DESC").each do |answer| %>
       <div class="question_answer">
-        <div>"<%= answer.content %>"</div>
-        <p>antwortetest du auf die Frage: </p>
-        <div><%= link_to answer.question.question, [answer.question] %></div>
+
+        <p><%= link_to answer.question.question, [answer.question] %></p>
+        <p>"<%= answer.content %>"</p>
         <% if user_signed_in? && current_user == answer.user %>
           <%= link_to "Bearbeiten", edit_question_answer_path(answer.question, answer), class: "edit_delete" %>  
           <%= link_to "Löschen", [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
