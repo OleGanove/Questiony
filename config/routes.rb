@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
+  resources :friendships
   resources :questions do
   	resources :answers, except: [:index]
   end
