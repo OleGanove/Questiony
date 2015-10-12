@@ -3,11 +3,14 @@ class AnswersController < ApplicationController
   before_action :find_question, only: [:create, :update, :edit, :destroy]
 
   def create
+    @questioner = @question.user
     @answer = @question.answers.build(answer_params)
-    @friendship = current_user.friendships.build(friend_id: @question.user.id, approved: "false")
     @answer.user_id = current_user.id
 
-  	if @answer.save && @friendship.save
+    # Create a friendship only if they are not friends already
+    @friendship = current_user.friendships.build(friend_id: @questioner.id, approved: "false") unless current_user.friends_with?(@questioner)
+
+  	if @answer.save && (@friendship.save == true if @friendship != nil)
       redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!"
   	else
       @messages = []
@@ -48,3 +51,22 @@ class AnswersController < ApplicationController
       params.require(:answer).permit(:content)
     end
 end
+
+
+=begin
+  def create
+    @answer = @question.answers.build(answer_params)
+    @friendship = current_user.friendships.build(friend_id: @question.user.id, approved: "false")
+    @answer.user_id = current_user.id
+
+    if @answer.save && @friendship.save
+      redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!"
+    else
+      @messages = []
+      @answer.errors.full_messages.each do |msg|
+        @messages << msg
+      end
+      redirect_to question_path(@question), alert: "Die Antwort konnte leider nicht gespeichert werden: #{@messages}"
+    end
+  end
+=end
