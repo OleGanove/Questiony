@@ -1,17 +1,5 @@
 class FriendshipsController < ApplicationController
-  def create
-  	# Problem: Wie bekomme ich auf der Fragenseite die Params der :friend_id? Vielleicht in einer @friend Variable speichern? 
-  	@friendship = current_user.friendships.build(friend_id: params[:friend_id])
 
-  	# Problem: Wie löse ich diesen "create" aus, wenn ich antworte (denn Antworten werden durch Answer Controller ausgelöst)
-  	if @friendship.save
-  	  flash[:notice] = "Freundesanfrage gesendet."
-  	  redirect_to :back
-  	else
-      flash[:error] = "Freundesanfrage war nicht möglich."
-  	  redirect_to :back
-  	end
-  end
 
   def update
   	# Selbes Problem: Ich will nicht auf der Users#show page dieses Action auslösen, sondern beim Antworten

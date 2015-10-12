@@ -26,4 +26,9 @@ class User < ActiveRecord::Base
   def friends
   	active_friends | passive_friends
   end
+
+  def already_friends_with?(friend)
+    friendships.where(friend_id: friend.id, approved: true).any? || 
+    friend.friendships.where(friend_id: self.id, approved: true).any? 
+  end
 end
