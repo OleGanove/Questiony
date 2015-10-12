@@ -16,30 +16,26 @@
         <p>Alter: <%= @user.age %></p>
       </div>
 
-    <% unless current_user == @user %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
-    <% end %>
-
-    <h4>Friends</h4>
+    <h4>Freunde</h4>
     <ul>
         <% @user.friends.each do |friend| %>
         <li>
-          <%= friend.email %> 
+          <%= link_to friend.name, friend %> 
           <% if current_user == @user %>
-            <%= link_to "Remove", friendship_path(:id => friend), :method => :delete %>
+            <%= link_to "Beenden", friendship_path(:id => friend), :method => :delete %>
           <% end %>
         </li>
       <% end %>
     </ul>
 
     <% if current_user == @user %>
-        <h4>Friend Requests</h4>
+        <h4>Freundschaftsanfragen</h4>
         <ul>
             <% @user.requested_friendships.each do |request| %>
             <li>
               <%= request.email %> 
-              <%= link_to "Accept", friendship_path(:id => request), :method => "patch" %> 
-              <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
+              <%= link_to "bestätigen", friendship_path(:id => request), :method => "patch" %> 
+              <%= link_to "ablehnen", friendship_path(:id => request), :method => :delete %>
             </li>
           <% end %>
         </ul>

@@ -19,9 +19,9 @@ class FriendshipsController < ApplicationController
   	@friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
   	@friendship.update(approved: true)
   	if @friendship.save
-  	  redirect_to root_url, :notice => "Freund hinzugefügt."
+  	  redirect_to :back, :notice => "Freund hinzugefügt."
   	else
-  	  redirect_to root_url, :notice => "Sorry, Freundschaft konnte nicht bestätigt werden."
+  	  redirect_to :back, :notice => "Sorry, Freundschaft konnte nicht bestätigt werden."
   	end
   end
 

@@ -4,9 +4,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.build(answer_params)
+    @friendship = current_user.friendships.build(friend_id: @question.user.id, approved: "false")
     @answer.user_id = current_user.id
 
-  	if @answer.save
+  	if @answer.save && @friendship.save
       redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!"
   	else
       @messages = []
