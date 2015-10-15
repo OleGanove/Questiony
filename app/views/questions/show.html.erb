@@ -20,8 +20,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
 
@@ -54,14 +52,8 @@
     <% @question.answers.order("created_at DESC").each do |answer| %>
       <hr>
       <p><%= answer.content %></p>
-
-      <% if user_signed_in? && current_user == answer.user %>
-        <%= link_to "Bearbeiten", edit_question_answer_path(@question, answer), class: "edit_delete" %>
-        <%= link_to "Löschen", [answer.question, answer],
-                     method: :delete,
-                     data: { confirm: "Are you sure?" },
-                     class: "edit_delete" %>
-      <% end %>
+      <!-- 
+        Hier noch: Friend accept buttons. Sowas wie current_user.requested_friendships.find_by(id: answer.user)-->
     <% end %>
   </div>
   <% end %>

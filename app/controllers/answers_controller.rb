@@ -11,12 +11,16 @@ class AnswersController < ApplicationController
     @friendship = current_user.friendships.build(friend_id: @questioner.id, approved: "false") unless current_user.friends_with?(@questioner)
 
   	if @answer.save && (@friendship.save == true if @friendship != nil)
-      redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!"
+      redirect_to question_path(@question), notice: "Antwort wurde gespeichert und eine Freundschaftsanfrage an #{@question.user.name} gesendet."
+    elsif @answer.save
+      redirect_to question_path(@question), notice: "Antwort wurde gespeichert, yay!" 
   	else
       @messages = []
       @answer.errors.full_messages.each do |msg|
         @messages << msg
       end
+      # Bug: Wenn ich bei jmd. antworte, mit dem ich schon befreundet wird
+      #      speichert zwar die Antwort, aber dieses Alert kommt dann o0
       redirect_to question_path(@question), alert: "Die Antwort konnte leider nicht gespeichert werden: #{@messages}"
   	end
   end

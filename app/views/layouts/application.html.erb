@@ -9,13 +9,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/flash' %>
+
 
   <% if current_page?(root_path) %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
   <% else %>
     <div id="content">
       <%= render 'layouts/header' %>
+      <%= render 'layouts/flash' %>
       <%= yield %>
     </div>
   <% end %>

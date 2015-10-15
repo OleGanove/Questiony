@@ -1,9 +1,6 @@
 class FriendshipsController < ApplicationController
 
-
   def update
-  	# Selbes Problem: Ich will nicht auf der Users#show page dieses Action auslösen, sondern beim Antworten
-  	# Einfach params[:id] mit dem Besitzer der Frage austauschen? 
   	@friendship = Friendship.where(friend_id: current_user, user_id: params[:id]).first
   	@friendship.update(approved: true)
   	if @friendship.save
@@ -18,7 +15,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
     @friendship.destroy
 
-    flash[:notice] = "Freundschaft gelöscht."
+    flash[:alert] = "Freundschaft gelöscht."
     redirect_to :back
   end
 end

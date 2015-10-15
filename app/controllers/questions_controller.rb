@@ -19,10 +19,11 @@ class QuestionsController < ApplicationController
   	  redirect_to @question, notice: "Yay, #{current_user.name}, die Frage wurde gespeichert!"
   	else
   	  render 'new', notice: "Oh nein, #{current_user.name}, die Frage konnte nicht gespeichert werden."
- 	end
+ 	  end
   end
 
   def show
+    @answerers = @question.answers
   end
 
   def update

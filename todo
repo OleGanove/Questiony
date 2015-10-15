@@ -1,0 +1,11 @@
+Bugs:
+
+- Wenn man noch nicht befreundet ist, antwortet, Antwort löscht, nochmal antwortet, bekommt der Questioner 2x Anfragen.
+
+Features:
+- Messenger System, aber nur mit Freunden (Man darf nur Leuten schreiben, mit denen man befreundet ist).
+- Notification:
+---- Wenn jmd. auf Frage antwortet
+---- Wenn jmd. seine Antwort editiert
+---- Wenn jmd. Antwort löscht? 
+---- Wenn man als Freund hinzugefügt wird
