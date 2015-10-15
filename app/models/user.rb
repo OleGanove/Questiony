@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  acts_as_messageable
+
 
   has_many :questions, :dependent => :destroy
   has_many :answers, :dependent => :destroy
@@ -30,5 +32,13 @@ class User < ActiveRecord::Base
   def friends_with?(person)
     friendships.where(friend_id: person.id, approved: true).any? || 
     person.friendships.where(friend_id: self.id, approved: true).any? 
+  end
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 end
