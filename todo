@@ -3,7 +3,6 @@ Bugs:
 - Wenn man noch nicht befreundet ist, antwortet, Antwort löscht, nochmal antwortet, bekommt der Questioner 2x Anfragen.
 
 Features:
-- Messenger System, aber nur mit Freunden (Man darf nur Leuten schreiben, mit denen man befreundet ist).
 - Notification:
 ---- Wenn jmd. auf eigene Frage antwortet
 ---- Wenn jmd. seine Antwort editiert
@@ -11,5 +10,8 @@ Features:
 ---- Wenn man als Freund hinzugefügt wird
 - Layout des Headers ändern (mit ausfahrbarem Menü)
 
+- Neben der Antwort soll "Accept" stehen (und nicht auf Profilseite)
+
+- Styling des Messenger Bereichs
 Learn:
 - About locals

@@ -1,11 +1,60 @@
 .col-md-4 {
-	width: 33%;
+	width: 25%;
 	float: left;
 	position: relative;
 }
 
 .col-md-8 {
-	width: 66%;
+	width: 75%;
 	float: left;
 	position: relative;
+}
+
+.nav-messages {
+	list-style-type: none;
+	background-color: $yellow;
+	margin: 2em 0px;
+	padding-left: 0em;
+
+	li {
+		padding: 0.5em 1em;
+		a em {
+			width: 1em;
+		}		
+	}
+
+	.active {
+		background-color: $yellow_dark;
+	}
+
+
+}
+
+.messages_content, .conversation, .conversation_footer {
+
+	.media, form {
+		padding: 2em;
+		background-color: $light;
+		margin: 2em 0em 2em 3em;
+	}
+
+	form .form-group {
+		padding: 1em 0;
+
+		.form-control {
+			background-color: $white;
+		}
+	}
+}
+
+.conversation {
+	padding-top: 2em;
+
+	.media {
+		margin: 0em 0em 0em 3em;
+	}
+}
+
+.conv_button {
+	float: left;
 }

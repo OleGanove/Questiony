@@ -1,34 +1,35 @@
-<div class="row">
-  <div class="spacer"></div>
+<div class="wrapper_full headline">
+  <div class="wrapper_skinny">
+    <h1>Deine Unterhaltung mit: </h1>
+  </div>
+</div>
+
+<div class="wrapper_wide">
   <div class="col-md-6">
-    <%= link_to "Neue Nachricht", new_conversation_path, class: "btn btn-success" %>
+    <%= link_to "Neue Nachricht", new_conversation_path, class: "button button_highlight conv_button" %>
   </div>
   <div class="col-md-6 text-right">
     <% if conversation.is_trashed?(current_user) %>
-        <%= link_to 'Aus Papierkorb entfernen', untrash_conversation_path(conversation), class: 'btn btn-info', method: :post %>
+        <%= link_to 'Aus Papierkorb entfernen', untrash_conversation_path(conversation), class: 'button button_highlight', method: :post %>
     <% else %>
-        <%= link_to 'In den Papierkorb', trash_conversation_path(conversation), class: 'btn btn-danger', method: :post,
+        <%= link_to 'In den Papierkorb', trash_conversation_path(conversation), class: 'button button_highlight', method: :post,
                     data: {confirm: 'Bist du sicher?'} %>
     <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="spacer"></div>
+<div class="wrapper_wide">
   <div class="col-md-4">
-    <div class="panel panel-default">
       <div class="panel-body">
         <%= render 'mailbox/folders' %>
       </div>
-    </div>
   </div>
 
   <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="conversation">
         <%= render partial: 'messages' %>
       </div>
-      <div class="panel-footer">
+      <div class="conversation_footer">
         <!-- Reply Form -->
         <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
             <div class="form-group">
@@ -36,9 +37,7 @@
             </div>
             <%= f.submit "Antworten", class: 'btn btn-danger pull-right' %>
         <% end %>
-        <div class="clearfix"></div>
       </div>
-    </div>
   </div>
 
 </div>
