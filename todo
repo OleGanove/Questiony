@@ -5,18 +5,24 @@ Bugs:
 
 Features:
 - Notification:
----- Wenn jmd. auf eigene Frage antwortet
----- Wenn jmd. seine Antwort editiert
----- Wenn jmd. Antwort löscht? 
----- Wenn man als Freund hinzugefügt wird
+	- Wenn jmd. auf eigene Frage antwortet
+	- Wenn jmd. seine Antwort editiert
+	- Wenn jmd. Antwort löscht? 
+	- Wenn man als Freund hinzugefügt wird
 - Layout des Headers ändern (mit ausfahrbarem Menü)
 
 - Neben der Antwort soll "Accept" stehen (und nicht auf Profilseite)
-- Profilfoto
 - Fotoupload
 - Auf Profilseite soll: "Eine Nachricht senden" stehen
 - Pagination
 - Wenn schon befreundet: Bild/Name neben der Frage
+- Auf der Userpage sollte es Unterkategorien geben:
+	- Über mich
+	- Fotos
+	- Fragen | Antworten
+	- Freunde
+	- Bearbeiten
+- Wie löscht man Fotos mit Paperclip?
 
 Learn:
 - About locals
