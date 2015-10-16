@@ -8,7 +8,7 @@
     <h4 class="media-heading">
       <%= conversation.originator.name %> <br>
       <small><b>Titel: </b><%= conversation.subject %></small><br>
-      <small><b>Datum: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+      <small><b>Datum: </b><%=  conversation.messages.last.created_at.strftime("%d.%m.%Y, um %H:%M Uhr") %></small>
     </h4>
     <%= truncate conversation.messages.last.body, length: 145 %>
     <%= link_to "ansehen", conversation_path(conversation)  %>
