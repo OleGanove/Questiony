@@ -14,6 +14,8 @@ gem "font-awesome-rails"
 gem 'mailboxer'
 gem 'chosen-rails'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem "paperclip", "~> 4.3"
+
 
 group :development, :test do
   gem 'byebug'

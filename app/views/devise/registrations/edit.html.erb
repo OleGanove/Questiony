@@ -4,8 +4,6 @@
   </div>
 </div>
 
-
-
 <div id="form">
   <div class="wrapper_skinny">
 
@@ -30,6 +28,10 @@
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.file_field :avatar %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

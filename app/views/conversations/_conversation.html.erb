@@ -1,8 +1,6 @@
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
+    <%= link_to image_tag(conversation.originator.avatar.url(:friend), class: "circular"), conversation.originator %> 
   </div>
   <div class="media-body">
     <h4 class="media-heading">

@@ -9,7 +9,7 @@
   <div class="col col_left">
     <div class="profile cf">
       <h2 class="profile_title">Profile</h2>
-      <%= image_tag("avatars/avatar-05.png", class: "pic cf") %>
+      <%= image_tag @user.avatar.url(:thumb), class: "circular" %>
       <div class="profile_info">
         <p>Name: <%= @user.name %></p>
         <p>Geschlecht: <%= get_gender(@user.gender) %></p>
@@ -17,18 +17,21 @@
       </div>
 
     <h4>Freunde</h4>
-    <ul>
+
         <% @user.friends.each do |friend| %>
-        <li>
-          <%= link_to friend.name, friend %> 
+        <div>
+          <% if current_user.friends_with?(friend) %>
+            <%= link_to image_tag(friend.avatar.url(:friend)), friend %> 
+          <% end %>
+
           <% if current_user == @user %>
             <%= link_to "Beenden", friendship_path(:id => friend), 
                                    :method => :delete,
                                    data: { confirm: "Bist du sicher, dass du die Freundschaft mit #{friend.name} beenden willst?"}  %>
           <% end %>
-        </li>
+        </div>
       <% end %>
-    </ul>
+
 
     <% if current_user == @user %>
         <h4>Freundschaftsanfragen</h4>

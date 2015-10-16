@@ -2,6 +2,11 @@
 
 }
 
+.profile {
+	ul {
+		list-style-type: none;
+	}
+}
 .col {
 	text-align: center;
 }
@@ -38,4 +43,10 @@
 .line {
 	width: 2em;
 	align: right;
+}
+
+.circular {
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
 }

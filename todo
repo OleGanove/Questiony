@@ -1,6 +1,7 @@
 Bugs:
 
 - Wenn man noch nicht befreundet ist, antwortet, Antwort löscht, nochmal antwortet, bekommt der Questioner 2x Anfragen.
+- Man sieht unter "Freunde" das Profilfoto anderer Freunde
 
 Features:
 - Notification:
@@ -14,6 +15,8 @@ Features:
 - Profilfoto
 - Fotoupload
 - Auf Profilseite soll: "Eine Nachricht senden" stehen
+- Pagination
+- Wenn schon befreundet: Bild/Name neben der Frage
 
 Learn:
 - About locals

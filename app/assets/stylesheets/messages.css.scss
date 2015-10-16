@@ -36,6 +36,20 @@
 		padding: 2em;
 		background-color: $light;
 		margin: 2em 0em 2em 3em;
+		overflow: hidden;
+
+		.media-left {
+			float: left;
+		}
+
+		.media-body {
+			overflow: hidden;
+			padding-left: 1.3em;
+
+			.media-heading {
+				margin-top: 0em;
+			}
+		}
 	}
 
 	form .form-group {
