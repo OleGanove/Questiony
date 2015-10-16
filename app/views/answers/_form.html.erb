@@ -1,6 +1,6 @@
 <%= form_for([@question, @question.answers.build]) do |f| %>
   <p>
-  	<%= f.label :content %>
+  	<%= f.label :content, "Inhalt" %>
   	<%= f.text_area :content %>
   </p>
 
@@ -8,5 +8,3 @@
     <%= f.submit class: "button button_highlight" %>
   </p>
 <% end %>
-
-<!--, @question.user.friendships.build(friend_id: current_user, approved: "false")-->

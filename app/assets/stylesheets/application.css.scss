@@ -11,8 +11,11 @@ $dark_blue: #1B7263;
 $yellow: #FFF083;
 $yellow_dark: #FFD256;
 
+
 body {
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Droid sans', sans-serif;
+	letter-spacing: 0.04em;
+	color: $dark;
 }
 
 #content {
@@ -26,6 +29,10 @@ a {
 	&:hover {
 		color: darken($highlight, 20%);
 	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Quicksand', sans-serif;
 }
 
 h2, h3, h4, h5, h6 {
@@ -46,11 +53,6 @@ h4 {
 	font-size: 1em;
 }
 
-p {
-	font-family: 'Droid Sans', sans-serif;;
-	color: $dark;
-	letter-spacing: 0.04em;
-}
 
 .headline {
 	background-color: $blueish;
@@ -150,6 +152,7 @@ hr {
 	text-align: center;
 	line-height: 2em;
 	clear: both;
+	padding: 0 1em;
 
 }
 
@@ -194,6 +197,8 @@ hr {
 	left: 0;
 	z-index: 9999;
 	width: 100%;
+	font-family: 'Quicksand', sans-serif;
+
 
 	#logo {
 		float: left;

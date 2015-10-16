@@ -22,7 +22,9 @@
         <li>
           <%= link_to friend.name, friend %> 
           <% if current_user == @user %>
-            <%= link_to "Beenden", friendship_path(:id => friend), :method => :delete %>
+            <%= link_to "Beenden", friendship_path(:id => friend), 
+                                   :method => :delete,
+                                   data: { confirm: "Bist du sicher, dass du die Freundschaft mit #{friend.name} beenden willst?"}  %>
           <% end %>
         </li>
       <% end %>
@@ -52,7 +54,7 @@
   	      <div>
   		      <% if user_signed_in? && current_user == question.user %>
   		        <%= link_to "Bearbeiten", edit_question_path(question), class: "edit_delete" %>  
-  		       <%= link_to "Löschen", question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+  		       <%= link_to "Löschen", question_path(question), method: :delete, data: { confirm: "Bist du sicher, dass du die Frage löschen willst?" }, class: "edit_delete" %>
   		      <% end %>
   		    </div>
         <hr class="line">
@@ -69,7 +71,7 @@
         <p>"<%= answer.content %>"</p>
         <% if user_signed_in? && current_user == answer.user %>
           <%= link_to "Bearbeiten", edit_question_answer_path(answer.question, answer), class: "edit_delete" %>  
-          <%= link_to "Löschen", [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }, class: "edit_delete" %>
+          <%= link_to "Löschen", [answer.question, answer], method: :delete, data: { confirm: "Bist du sicher, dass du die Antwort löschen willst?" }, class: "edit_delete" %>
         <% end %>
       </div>
       <hr class="line">

@@ -43,6 +43,7 @@
 
 		.form-control {
 			background-color: $white;
+			box-sizing: border-box;
 		}
 	}
 }
@@ -57,4 +58,5 @@
 
 .conv_button {
 	float: left;
+	margin-right: 1em;
 }
