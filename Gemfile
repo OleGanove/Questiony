@@ -15,7 +15,7 @@ gem 'mailboxer'
 gem 'chosen-rails'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem "paperclip", "~> 4.3"
-
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'byebug'
