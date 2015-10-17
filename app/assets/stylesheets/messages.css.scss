@@ -74,3 +74,12 @@
 	float: left;
 	margin-right: 1em;
 }
+
+.chosen-container{
+	width: 33% !important;
+	margin-top: 0.5em;
+	.chosen-choices {
+		border: none;
+		line-height: 2em;
+	}
+}

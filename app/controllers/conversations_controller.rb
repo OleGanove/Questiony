@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @friends = current_user.friends
   end
 
   def create

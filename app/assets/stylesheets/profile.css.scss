@@ -50,3 +50,32 @@
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 }
+
+.friends {
+	width: 50%;
+	margin: 0 auto;
+	text-align: left;
+
+	.profile_pic {
+		display: inline-block;
+
+		img {
+			padding: 0.25em;
+			filter: grayscale(1000);
+
+			&:hover {
+				filter: none;
+			}
+		}
+	}
+}
+
+.headline_profile {
+	margin-bottom: 0;
+	background-color: $blueish;
+}
+
+.options {
+	padding: 0!important;
+	float: left;
+}

@@ -1,36 +1,58 @@
-<div class="wrapper_full headline">
+<div class="wrapper_full headline headline_profile">
   <div class="wrapper_skinny">
     <h1><%= @user.name %>'s Profil</h1>
+  </div>
+</div>
+
+<div class="wrapper_full control_panel">
+  <div class="wrapper_skinny">
+
+    <%= link_to "Über #{@user.name}", "#" %> 
+    <%= link_to "Fotos", "#" %>
+    <%= link_to "Fragen & Antworten", "#" %>
+    <%= link_to "Freunde" %>
+    <% if current_user != @user %>
+      <%= link_to "<i class='fa fa-envelope-o fa-fw'></i> Nachricht".html_safe, new_conversation_path(recipient_id: @user.id) %>
+    <% else %>
+      <%= link_to "<i class='fa fa-cog fa-fw'></i>
+Bearbeiten".html_safe, edit_user_registration_path %> 
+    <% end %>
+
   </div>
 </div>
 
 
 <div class="wrapper_wide">
   <div class="col col_left">
+
     <div class="profile cf">
-      <h2 class="profile_title">Profile</h2>
+      <h2 class="profile_title">Profil</h2>
       <%= image_tag @user.avatar.url(:thumb), class: "circular" %>
       <div class="profile_info">
         <p>Name: <%= @user.name %></p>
         <p>Geschlecht: <%= get_gender(@user.gender) %></p>
         <p>Alter: <%= @user.age %></p>
+
       </div>
 
     <h4>Freunde</h4>
-
+        <div class="friends cf">
         <% @user.friends.each do |friend| %>
-        <div>
+        
           <% if current_user.friends_with?(friend) %>
-            <%= link_to image_tag(friend.avatar.url(:friend)), friend %> 
+            <div class="profile_pic"><%= link_to image_tag(friend.avatar.url(:friend)), friend %></div>
           <% end %>
 
+          <!--
           <% if current_user == @user %>
             <%= link_to "Beenden", friendship_path(:id => friend), 
                                    :method => :delete,
                                    data: { confirm: "Bist du sicher, dass du die Freundschaft mit #{friend.name} beenden willst?"}  %>
           <% end %>
+          -->
+        
+        <% end %>
         </div>
-      <% end %>
 
 
     <% if current_user == @user %>
@@ -49,7 +71,7 @@
   </div>
 
   <div class="col col_middle">
-  	<h2 class="profile_title">Deine Fragen</h2>
+    <h2 class="profile_title"><%= @user.name %>s Fragen</h2>
 
   	<% @user.questions.limit(3).order("created_at DESC").each do |question| %>
   	  <div class="question_answer">
@@ -66,7 +88,7 @@
   </div>
 
   <div class="col col_right">
-    <h2 class="profile_title">Deine Antworten</h2>
+    <h2 class="profile_title"><%= @user.name %>s Antworten</h2>
     <% @user.answers.limit(3).order("created_at DESC").each do |answer| %>
       <div class="question_answer">
 

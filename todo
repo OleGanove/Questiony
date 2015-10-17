@@ -1,7 +1,6 @@
 Bugs:
 
 - Wenn man noch nicht befreundet ist, antwortet, Antwort löscht, nochmal antwortet, bekommt der Questioner 2x Anfragen.
-- Man sieht unter "Freunde" das Profilfoto anderer Freunde
 
 Features:
 - Notification:
@@ -13,15 +12,8 @@ Features:
 
 - Neben der Antwort soll "Accept" stehen (und nicht auf Profilseite)
 - Fotoupload
-- Auf Profilseite soll: "Eine Nachricht senden" stehen
 - Pagination
 - Wenn schon befreundet: Bild/Name neben der Frage
-- Auf der Userpage sollte es Unterkategorien geben:
-	- Über mich
-	- Fotos
-	- Fragen | Antworten
-	- Freunde
-	- Bearbeiten
 - Wie löscht man Fotos mit Paperclip?
 
 Learn:
